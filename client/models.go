@@ -69,8 +69,8 @@ type Occurrence struct {
 	MinuteExtra  int       `json:"minute_extra,omitempty"`
 	In           string    `json:"in,omitempty"`
 	Out          string    `json:"out,omitempty"`
-	Team         *Team     `json:"team,omitempty"`
-	Player       *Person   `json:"player,omitempty"`
+	Team         Team      `json:"team,omitempty"`
+	Player       Person    `json:"player,omitempty"`
 	PlayerOff    Person    `json:"player_off,omitempty"`
 	Reason       string    `json:"reason,omitempty"`
 	AssistPlayer Person    `json:"assist_player,omitempty"`

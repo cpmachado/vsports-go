@@ -13,29 +13,29 @@ type Country struct {
 }
 
 type Event struct {
-	ID          int            `json:"id"`
-	DateUTC     string         `json:"date_utc"`
-	TimeUTC     string         `json:"time_utc"`
-	DateTime    string         `json:"date_time"`
-	TeamA       Team           `json:"team_A"`
-	TeamB       Team           `json:"team_B"`
-	Tournament  Tournament     `json:"tournament"`
-	Stage       Stage          `json:"stage,omitempty"`
-	Week        Week           `json:"week,omitempty"`
-	HTS_A       int            `json:"hts_A"`
-	HTS_B       int            `json:"hts_B"`
-	FS_A        int            `json:"fs_A"`
-	FS_B        int            `json:"fs_B"`
-	Total_A     int            `json:"total_A"`
-	Total_B     int            `json:"total_B"`
-	MatchLength string         `json:"match_length"`
-	MatchPeriod int            `json:"match_period"`
-	Status      string         `json:"status"`
-	Coverage    string         `json:"coverage,omitempty"`
-	Period      []Period       `json:"period,omitempty"`
-	Venue       Venue          `json:"venue"`
-	TVChannel   []TVChannel    `json:"tv_channel,omitempty"`
-	Occurrence  []Occurrence_s `json:"occurrence,omitempty"`
+	ID          int          `json:"id"`
+	DateUTC     string       `json:"date_utc"`
+	TimeUTC     string       `json:"time_utc"`
+	DateTime    string       `json:"date_time"`
+	TeamA       Team         `json:"team_A"`
+	TeamB       Team         `json:"team_B"`
+	Tournament  Tournament   `json:"tournament"`
+	Stage       Stage        `json:"stage,omitempty"`
+	Week        Week         `json:"week,omitempty"`
+	HTS_A       int          `json:"hts_A"`
+	HTS_B       int          `json:"hts_B"`
+	FS_A        int          `json:"fs_A"`
+	FS_B        int          `json:"fs_B"`
+	Total_A     int          `json:"total_A"`
+	Total_B     int          `json:"total_B"`
+	MatchLength string       `json:"match_length"`
+	MatchPeriod int          `json:"match_period"`
+	Status      string       `json:"status"`
+	Coverage    string       `json:"coverage,omitempty"`
+	Period      []Period     `json:"period,omitempty"`
+	Venue       Venue        `json:"venue"`
+	TVChannel   []TVChannel  `json:"tv_channel,omitempty"`
+	Occurrence  []Occurrence `json:"occurrence,omitempty"`
 }
 
 type Lineup struct {
@@ -59,21 +59,21 @@ type Media_s struct {
 	Platform    Platform `json:"platform"`
 }
 
-type Occurrence_s struct {
+type Occurrence struct {
 	ID           int       `json:"id"`
 	MatchPeriod  int       `json:"match_period"`
 	Minute       int       `json:"minute"`
-	MinuteExtra  int       `json:"minute_extra,omitempty"`
-	In           string    `json:"in,omitempty"`
-	Out          string    `json:"out,omitempty"`
-	Team         Team      `json:"team,omitempty"`
-	Player       Person    `json:"player,omitempty"`
-	PlayerOff    Person    `json:"player_off,omitempty"`
-	Reason       string    `json:"reason,omitempty"`
-	AssistPlayer Person    `json:"assist_player,omitempty"`
 	TypeCode     string    `json:"type_code"`
 	TypeName     string    `json:"type_name"`
 	Text         string    `json:"text,omitempty"`
+	MinuteExtra  int       `json:"minute_extra,omitempty"`
+	In           string    `json:"in,omitempty"`
+	Out          string    `json:"out,omitempty"`
+	Team         *Team     `json:"team,omitempty"`
+	Player       *Person   `json:"player,omitempty"`
+	PlayerOff    Person    `json:"player_off,omitempty"`
+	Reason       string    `json:"reason,omitempty"`
+	AssistPlayer Person    `json:"assist_player,omitempty"`
 	Media        []Media_s `json:"media,omitempty"`
 	TeamAScore   *int      `json:"team_A_score,omitempty"`
 	TeamBScore   *int      `json:"team_B_score,omitempty"`
@@ -82,7 +82,7 @@ type Occurrence_s struct {
 	Outcome      string    `json:"outcome,omitempty"`
 }
 
-type OccurrenceResponse = []Occurrence_s
+// type OccurrenceResponse = []Occurrence_s
 
 type Period struct {
 	Period int    `json:"period"`

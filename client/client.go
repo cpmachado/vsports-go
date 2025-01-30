@@ -280,6 +280,26 @@ func (c *VSportsClient_s) GetEventOccurrences(eventID string, useCache bool) ([]
 
 }
 
+func (c *VSportsClient_s) GetEventMedia(eventID string, useCache bool) ([]Media_s, error) {
+	body, err := c.request(fmt.Sprintf("events/%s/occurrences", eventID), nil, useCache)
+	if err != nil {
+		return nil, err
+	}
+
+	var occurrences []Occurrence_s
+	err = json.Unmarshal(body, &occurrences)
+	if err != nil {
+		return nil, err
+	}
+
+	var media []Media_s
+	for _, occurrence := range occurrences {
+		media = append(media, occurrence.Media...)
+	}
+
+	return media, nil
+}
+
 func (c *VSportsClient_s) GetPersonById(PersonID int, useCache bool) (*Person, error) {
 	body, err := c.request(fmt.Sprintf("person/%d", PersonID), nil, useCache)
 	if err != nil {

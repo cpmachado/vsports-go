@@ -28,6 +28,8 @@ type Event struct {
 	FS_B        int          `json:"fs_B"`
 	Total_A     int          `json:"total_A"`
 	Total_B     int          `json:"total_B"`
+    Minute      int          `json:"minute"`
+    MinuteExtra int          `json:"minute_extra"`
 	MatchLength string       `json:"match_length"`
 	MatchPeriod int          `json:"match_period"`
 	Status      string       `json:"status"`

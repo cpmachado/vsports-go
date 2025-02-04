@@ -162,7 +162,7 @@ func (c *VSportsClient_s) request(endpoint string, params map[string]string, use
 // ===== API Methods =====
 
 func (c *VSportsClient_s) GetTournaments(useCache bool) ([]Tournament, error) {
-	body, err := c.request("tournament", nil, useCache)
+	body, err := c.request("tournaments", nil, useCache)
 	if err != nil {
 		return nil, err
 	}

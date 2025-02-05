@@ -3,7 +3,7 @@ name: CI Go
 on: push
 
 jobs:
-  lint:
+  format-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
